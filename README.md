@@ -1,14 +1,27 @@
-<img width="1024" height="765" alt="image" src="https://github.com/user-attachments/assets/79572ba6-3241-4e63-bff9-ca42c745aaa6" />
+<img width="1024" height="765" alt="zz-skills" src="https://github.com/user-attachments/assets/79572ba6-3241-4e63-bff9-ca42c745aaa6" />
+
 # 之舟 zz-skills
 
-一套中文 Agent 技能库：36 个技能，覆盖「把事想清楚 → 做内容 → 推动自己 → 沉淀复盘」的完整循环。装进任何支持 Skills 的 Agent（ kimi ds Claude Code、Codex、WorkBuddy 智谱 等）后，对话里直接调用。
+**让 Agent 先想清楚，再动手——越用越懂你。**
+
+![Version](https://img.shields.io/badge/version-1.1.0-2563EB.svg?style=flat-square)
+![评测](https://img.shields.io/badge/%E8%AF%84%E6%B5%8B%2038%2F38%20%E9%80%9A%E8%BF%87-16A34A.svg?style=flat-square)
+![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-F59E0B.svg?style=flat-square)
+[![skills.sh](https://skills.sh/b/zhizhouAI/zz-skills)](https://skills.sh/b/zhizhouAI/zz-skills)
+
+简体中文 ｜ [English](README.en.md)
+
+一套中文 Agent 工作系统：36 个技能，覆盖「把事想清楚 → 做内容 → 推动自己 → 沉淀复盘」的完整循环。装进任何支持 Skills 的 Agent（Kimi、DeepSeek、Claude Code、Codex、WorkBuddy、智谱 等）后，对话里直接调用。
+
+> **使用条款**：个人使用、学习、修改免费；**任何商用场景（收费课程、商业产品内置、代客交付等）需事先取得书面授权**。转发请注明本仓库地址。详见 [LICENSE](LICENSE)。
 
 ## 快速开始
 
 ```bash
-git clone https://github.com/<你的用户名>/zz-skills.git
+git clone https://github.com/zhizhouAI/zz-skills.git
 cd zz-skills
-./install.sh          # 交互式选择安装到哪个 Agent
+./install.sh                                # 交互式选择安装到哪个 Agent
+./install.sh --pack 小红书起号包             # 或一键装一个场景包（推荐新手）
 ```
 
 也可以手动复制：把 `skills/` 下任意技能目录拷进 Agent 的技能目录（如 `~/.claude/skills/`）。
@@ -16,7 +29,7 @@ cd zz-skills
 装好后，在对话里输入 `/zz` 加上你的情况即可。信息不全也没关系，调度台会先问清楚再动手：
 
 ```text
-/zz 
+/zz 我在做少儿编程课，40 个学员但续费很低，不知道先查产品还是查定价
 ```
 
 ## 技能总览
@@ -25,8 +38,15 @@ cd zz-skills
 
 | 技能 | 干什么 |
 | --- | --- |
-| `zz` | 调度台：问清你要的结果，安排技能顺序，在当前对话里推进 |
+| `zz` | 调度台：问清你要的结果，安排技能顺序，在当前对话里推进；说「新手入门」有专属引导 |
 | `zz-skill-setup` | 安装、更新技能，清理重复入口 |
+
+### 档案与校准（差异化核心）
+
+| 技能 | 干什么 |
+| --- | --- |
+| `zz-profile` | 个人档案层：建档后全库内容技能越用越懂你 |
+| `zz-result-loop` | 判断校准飞轮：发布数据回填，修正你下次的预测 |
 
 ### 想清楚
 
@@ -92,16 +112,37 @@ cd zz-skills
 | `zz-skill-forge` | 制作或改进一个技能 |
 | `zz-desktop-ops` | Agent 操作电脑的行为规范：危险动作先确认 |
 
+## 为什么不一样
+
+- **个人档案层**：`zz-profile` 建档后，选题、钩子、改稿全部对齐"你"——你的生意、你的口癖，不是通用模板。用得越久，档案越准
+- **判断校准飞轮**：`zz-topic-score` 预测流量 → 发布后 `zz-result-loop` 回填实际数据 → 累积偏差记录反哺下次预测。让你的 Agent 比你自己更早发现你判断错了
+- **场景包**：不装 36 个技能挑花眼，`--pack` 一键装"小红书起号包"这类精选组合，自带使用顺序
+- **带考题的技能库**：每个技能配 3 道评测考题（`evaluation/`），`./scripts/evaluate.sh` 可随时验收，CI 自动把关——技能库也讲工程纪律
+
+## 场景包
+
+| 包 | 技能数 | 适用 |
+| --- | --- | --- |
+| 小红书起号包 | 7 | 从 0 到 1 做账号：建档→选题→钩子→改稿→风险→回填 |
+| 生意诊断包 | 6 | 生意卡住：体检→挖动机→拆同行→记决定 |
+| 副业起步包 | 7 | 想搞副业没行动：锁目标→拆卡点→存档续做 |
+
+```bash
+./install.sh --pack-list          # 看全部包
+./install.sh --pack 生意诊断包    # 一键装
+```
+
 ## 设计原则
 
 - **每个技能有红线**：质量底线写成可检查的条款，不靠感觉
+- **每个技能有考题**：3 道评测题（常规/边界/刁钻），改完跑评测防退化
 - **技能间传产物**：上一个技能的交付物直接作为下一个的输入，不用你复述
 - **示例具体**：每个技能配一个有行业、有数字的完整示例
 - **危险动作慢一步**：凡涉及付款、删除、发送，先停下等你确认
 
 ## License
 
-[CC BY-NC 4.0](LICENSE)
+[CC BY-NC 4.0](LICENSE)（署名 — 非商业性使用）
 
 - ✅ 个人使用、学习、修改、分享（需保留版权与来源声明）
-- ❌ 商业用途需先取得书面授权：
+- ❌ 商业用途需先取得书面授权：GitHub @zhizhouAI 私信

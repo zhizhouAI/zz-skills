@@ -1,0 +1,25 @@
+name: zz-skills 门禁
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 技能规范校验
+        run: python3 scripts/lint_skills.py
+
+      - name: 评测集校验
+        run: |
+          chmod +x scripts/evaluate.sh
+          ./scripts/evaluate.sh
+
+      - name: 仓库卫生检查
+        run: |
+          ! grep -ril "dontbe" . && echo "无外部仓库残留 ✓"
+          find . -name ".DS_Store" | grep . && exit 1 || echo "无系统垃圾文件 ✓"

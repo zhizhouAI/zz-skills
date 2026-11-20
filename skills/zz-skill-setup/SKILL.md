@@ -1,5 +1,6 @@
 ---
 name: zz-skill-setup
+status: stable
 description: 把 zz-skills 技能安装到你的 Agent，或更新到最新版，并清理重复入口。适用于首次安装、装到新设备、更新版本、发现同一个技能出现多个入口的情况。触发词：安装技能、更新技能、装到 Claude Code、装到其他 Agent、技能重复、清理入口。
 ---
 
