@@ -1,8 +1,7 @@
+<img width="1024" height="765" alt="image" src="https://github.com/user-attachments/assets/79572ba6-3241-4e63-bff9-ca42c745aaa6" />
 # 之舟 zz-skills
 
-一套中文 Agent 技能库：36 个技能，覆盖「把事想清楚 → 做内容 → 推动自己 → 沉淀复盘」的完整循环。装进任何支持 Skills 的 Agent（Claude Code、Codex、WorkBuddy 等）后，对话里直接调用。
-
-> **使用条款**：个人使用、学习、修改免费；**任何商用场景（收费课程、商业产品内置、代客交付等）需事先取得书面授权**。转发请注明本仓库地址。详见 [LICENSE](LICENSE)。
+一套中文 Agent 技能库：36 个技能，覆盖「把事想清楚 → 做内容 → 推动自己 → 沉淀复盘」的完整循环。装进任何支持 Skills 的 Agent（ kimi ds Claude Code、Codex、WorkBuddy 智谱 等）后，对话里直接调用。
 
 ## 快速开始
 
@@ -17,7 +16,7 @@ cd zz-skills
 装好后，在对话里输入 `/zz` 加上你的情况即可。信息不全也没关系，调度台会先问清楚再动手：
 
 ```text
-/zz 我在做少儿编程课，40 个学员但续费很低，不知道先查产品还是查定价
+/zz 
 ```
 
 ## 技能总览
@@ -102,7 +101,7 @@ cd zz-skills
 
 ## License
 
-[CC BY-NC 4.0](LICENSE)（署名 — 非商业性使用）
+[CC BY-NC 4.0](LICENSE)
 
 - ✅ 个人使用、学习、修改、分享（需保留版权与来源声明）
-- ❌ 商业用途需先取得书面授权：zhizhouAI@users.noreply.github.com
+- ❌ 商业用途需先取得书面授权：
